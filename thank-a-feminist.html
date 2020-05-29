@@ -1,0 +1,109 @@
+<!DOCTYPE.html>
+<html>
+
+<head>
+	<title>Thank a feminist</title>
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://d3js.org/d3.v5.js"></script>
+<head>
+
+<body>
+	<h1>Thank a feminist <br/> if you're a woman</h1>
+	
+  <div><p>and you can be your own person</p></div> 
+
+  <div><h2 id = "surprise1">Man could also be feminist!</h2></div>
+  
+  <div><h2 id = "surprise2">Being a feminist does not mean belittling men!</h2></div>
+
+  <div><h2 id = "surprise3">Feminists want equity for all genders!</h2></div>
+
+  <div><h2 id = "surprise4">You can be feminine and a feminist at the same time!</h2></div>
+
+	<button id="change">Click to see other messages!</button>
+	
+  <div id="footer"> ————————————————————— Check out the source <a href="https://www.schooloffeminism.org/thankafeminist" target="_blank">here</a>————————————————————— </div>
+
+
+
+	<script> 
+
+	var width = window.innerWidth;
+	var height= window.innerHeight;
+
+	var svg = d3.select("body")
+ 	 .append("svg")
+ 	 .attr("width",width)
+ 	 .attr("height",height);
+
+ 	var feministMessage = ["and you can own property", "and you can wear pants", "and you can have a job", "and you can go to college", "and you can get an abortion", "and you can use birth control", "and you can marry who you want", "and you can choose to show your body or not", "and you can practice a professional sport", "and you won't lose your job if you become pregnant","and you can vote","and you can talk openly about menstration", "and you can testify in your own defense", "and you can get a loan", "and you can run for office", "and you can read the books you want", "and you can breastfeed your baby in a public place"]
+
+	var feministIndex = 0;
+ 	
+ 	function changeMessage () {
+ 		return feministMessage[feministIndex++%feministMessage.length]
+ 		}
+ 	
+	d3.select("#change").on("click", function(){
+  		d3.selectAll("p")
+  		.text(changeMessage)
+  	});
+
+	var colorScale = d3.scaleSequential(d3.interpolateInferno)
+      .domain([0,1]);
+
+    var numCircles = 30;
+    var maxRadius = 60;
+    var data = [];
+
+    for(var i = 1; i <= numCircles; i++) {
+      var x = Math.random() * width;
+      var y = Math.random() * height;
+      var r = Math.random() * maxRadius;
+      var o = {xPosition: x, yPosition: y, radius: r};
+      data.push(o);
+    }
+
+	console.log(data);
+
+	var circle = svg.selectAll("circle")
+	  .append("circle")
+	  .data(data)
+	  .enter()
+	  .append("circle")
+ 	     .attr("cx", function(d) { return d.xPosition; })
+ 	     .attr("cy", function(d) { return d.yPosition; })
+ 	     .attr("r", function(d) { return d.radius; })
+ 	     .attr("fill", function() {
+    	      return colorScale(Math.random());
+    	        })
+   	     .attr("opacity", 0.45)
+
+	  .on("mousemove", function () {
+       d3.select(this)
+          .transition()
+          .duration(80)
+          .attr("opacity", 0)
+          .remove();
+            });
+
+       circle.each(function(d,i) {
+            var current_y = 0;
+            var circle = d3.select(this);
+            setTimeout(function() {
+              setInterval(function() {
+                if(current_y >= height) {
+                  clearInterval(this);
+                } else {
+                  current_y += 5;
+                  circle.attr("cy", current_y);
+                }
+              }, 20);
+            }, i * 1000);
+          });
+
+</script>
+</body>
+
+
+</html>

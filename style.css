@@ -1,0 +1,132 @@
+html {
+	background-color: #f9f4f3;
+}
+
+h1, p, button, #footer, a {
+ font-family: Avenir,Roboto,sans-serif;
+ text-align: center;
+ text-decoration: none;
+}
+
+h1 {
+ font-size: 35pt;
+ color: black;
+ letter-spacing: 4px;
+ position: absolute;
+ top: 20%;
+ left: 50%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+h2 {
+ font-family: Avenir,Roboto,sans-serif;
+ font-size: 9pt;
+ font-weight: 400;
+ color: #9999ff;
+ opacity: 0;
+ letter-spacing: 2px;
+}
+
+h2:hover {
+ color: #9999ff;
+}
+
+#surprise1 {
+ position: absolute;
+ top: 70%;
+ left: 20%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+#surprise2 {
+ position: absolute;
+ top: 30%;
+ left: 80%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+#surprise3 {
+ position: absolute;
+ top: 80%;
+ left: 80%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+#surprise4 {
+ position: absolute;
+ top: 12%;
+ left: 40%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+p {
+ font-size: 15pt;
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+}
+
+button {
+  font-size: 13px;
+  padding: 15px 5px 30px 5px;
+  width: 220px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button:hover {
+ background-color: black;
+ color: white;
+ cursor: cell;
+}
+
+a:link{
+ color: orange;
+}
+
+a:visited{
+ color: purple;
+ cursor: cell;
+}
+
+#footer {
+  font-size: 10pt;
+  position: fixed;
+  left: 0;
+  bottom: 100;
+  width: 100%;
+  color: purple;
+  animation-name: tilt;
+  animation-duration: 2s;
+  animation-iteration-count: 100;
+}
+
+#footer:hover {
+  color: orange;
+}
+
+@keyframes tilt {
+  0%   {transform: rotate(0deg);}
+  20%  {transform: rotate(-4deg);}
+  40%  {transform: rotate(4deg);}
+  52% {transform: rotate(-2deg);}
+  64% {transform: rotate(2deg);}
+  70% {transform: rotate(-1deg);}
+  75% {transform: rotate(1deg);}
+  80% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
+}
+
